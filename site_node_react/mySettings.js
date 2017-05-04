@@ -25,8 +25,7 @@ module.exports = function() {
       musicformat: "http://localhost:80/exjobb/headless_drupal/allmusicformat"
     },
     REST: {
-      GetAll: "/drupal/:model",
-      GetOne: "/drupal/:model/:modelID"
+      GetJson: "/drupal/:model/:modelID?"
     }
   };
 };

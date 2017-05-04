@@ -5,64 +5,13 @@ module.exports = class REST {
     this.settings = s.REST;
     this.DrupalData = s.DrupalData;
     this.app = express;
-    this.GetAll();
-    this.GetOne();
+    this.GET();
   
   }
 
-  GetAll(){
+  GET(){
     var me = this;
-    this.app.get(this.settings.GetAll, function(req, res) {
-
-      var model = req.params.model;
-      var isErr = [];
-      var models = Object.keys(me.DrupalData);
-      var myUrl = "";
-      // do we have a 404?
-      models.forEach(function(x){
-        if (model == x) {
-          isErr.push(x);
-          myUrl = me.DrupalData[x];
-        }
-      });
-
-      if (isErr.length == 0) {
-        res.sendStatus(404);
-        res.end();
-        return;
-      }
-      else{
-        m.request({
-          url: myUrl,
-          json: true
-        }, function(error, response, body){
-          if (error) {
-            console.log("ERROR WITH THE DATA");
-          }
-          else{
-            var obj = {};
-            var arr = [];
-            var dummyData = [];
-            if (model == 'albums') {
-              body.forEach(function(x){
-                me.createAlbumObj(x, obj);
-                arr.push(obj);
-                obj = {};
-              });
-            }
-            else{
-              arr = body;
-            }
-            res.json(arr);
-          }
-        });
-      }     
-    });
-  }
-
-  GetOne(){
-    var me = this;
-    this.app.get(this.settings.GetOne, function(req, res) {
+    this.app.get(this.settings.GetJson, function(req, res) {
 
       var model = req.params.model;
       var modelID = req.params.modelID;
@@ -76,7 +25,6 @@ module.exports = class REST {
           myUrl = me.DrupalData[x];
         }
       });
-
       if (isErr.length == 0) {
         res.sendStatus(404);
         res.end();
@@ -91,28 +39,62 @@ module.exports = class REST {
             console.log("ERROR WITH THE DATA");
           }
           else{
-            var isThere = [];
-            var obj = {};
-            for (var i = 0; i < body.length; i++) {
-              if (body[i].nid == modelID) {
-                isThere.push(i);
-                if (model == 'albums') {
-                  me.createAlbumObj(body[i], obj);
-                }
-                else{
-                  obj = body[i];
-                }
-                console.log("The Object is sent");
-                res.json(obj);
+            if (!modelID) {
+              var obj = {};
+              var arr = [];
+              if (model == 'albums') {
+                body.forEach(function(x){
+                  me.createAlbumObj(x, obj);
+                  arr.push(obj);
+                  obj = {};
+                });
               }
-              if (i == body.length - 1 && isThere.length == 0) {
-                res.json({text: "The Object was not found"});
+              else{
+                arr = body;
+              }
+              res.json(arr);
+            }
+            else{
+              var isThere = [];
+              var obj = {};
+              var arr = [];
+              for (var i = 0; i < body.length; i++) {
+                if (body[i].nid == modelID) {
+                  isThere.push(i);
+                  if (model == 'albums') {
+                    me.createAlbumObj(body[i], obj);
+                  }
+                  else{
+                    obj = body[i];
+                  }
+                  console.log("The Object is sent");
+                  res.json(obj);
+                  break;
+                }
+                else if (model == 'albums' && body[i].field_album_music_style.toLowerCase().indexOf(modelID) >= 0) {
+                  isThere.push(i);
+                  me.createAlbumObj(body[i], obj);
+                  arr.push(obj);
+                  obj = {};
+                }
+                else if (model == 'albums' && body[i].field_album_type.toLowerCase().indexOf(modelID) >= 0) {
+                  isThere.push(i);
+                  me.createAlbumObj(body[i], obj);
+                  arr.push(obj);
+                  obj = {};
+                }
+                if (i == body.length - 1 && isThere.length == 0) {
+                  res.json({text: "The Object was not found"});
+                }
+              }
+              if (arr.length > 0) {
+                console.log("The Object is sent");
+                res.json(arr);
               }
             }
           }
         });
       }
-
     });
   }
 
