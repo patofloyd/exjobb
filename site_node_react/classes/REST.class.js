@@ -53,20 +53,7 @@ module.exports = class REST {
             else{
               arr = body;
             }
-            function generateDummyData(a, b, callback){
-              for (var i = 0; i < 50; i++) {
-                a.forEach(function(x){
-                  b.push(x);
-                });
-              }
-              callback();
-            }
-            function myResponse(){
-              console.log("Data is sent!");
-              res.json(dummyData);
-            }
-            generateDummyData(arr, dummyData, myResponse);
-            //res.json(arr);
+            res.json(arr);
           }
         });
       }     
@@ -135,14 +122,14 @@ module.exports = class REST {
     newObj.album_description = oldObj.field_album_description;
     newObj.album_price = oldObj.field_album_price;
     newObj.album_stock = oldObj.field_album_stock;
-    newObj.album_style = oldObj.field_album_style;
+    newObj.album_style = oldObj.field_album_music_style;
     newObj.album_type = oldObj.field_album_type;
     newObj.album_nid = oldObj.nid;
     newObj.album_image = oldObj.field_image;
     newObj.album_date_updated = oldObj.changed;
 
     var splitField = newObj['field_album_artist'].split("/");
-    var splitFieldOfSplit = splitField[3].split('"');
+    var splitFieldOfSplit = splitField[4].split('"');
 
     newObj.album_artist_nid = splitFieldOfSplit[0];
 

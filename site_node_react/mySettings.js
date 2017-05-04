@@ -19,8 +19,10 @@ module.exports = function() {
       port: 2000
     },
     DrupalData: {
-      albums: "http://localhost:80/music_webshop/allalbums",
-      artists: "http://localhost:80/music_webshop/allartists"
+      albums: "http://localhost:80/exjobb/headless_drupal/allalbums",
+      artists: "http://localhost:80/exjobb/headless_drupal/allartists",
+      musicstyles: "http://localhost:80/exjobb/headless_drupal/allmusicstyles",
+      musicformat: "http://localhost:80/exjobb/headless_drupal/allmusicformat"
     },
     REST: {
       GetAll: "/drupal/:model",
