@@ -2,7 +2,7 @@ module.exports = class Server {
   constructor() {
     // save our settings to this
     this.settings = g.settings.Server;
-
+    this.staticSettings = g.settings.StaticComponents;
     // add express to this
     this.app = m.express();
 
@@ -22,6 +22,37 @@ module.exports = class Server {
         m.path.join(g.settings.appRoot, this.settings.webroot)
       )
     );
+    // some statics roots
+    this.app.use(
+      '/js', 
+      m.express.static(
+        m.path.join(g.settings.appRoot, this.staticSettings.jquery)
+      )
+    );
+    this.app.use(
+      '/js', 
+      m.express.static(
+        m.path.join(g.settings.appRoot, this.staticSettings.bootstrap_js)
+      )
+    );
+    this.app.use(
+      '/js', 
+      m.express.static(
+        m.path.join(g.settings.appRoot, this.staticSettings.myJs)
+      )
+    );
+    this.app.use(
+      '/css', 
+      m.express.static(
+        m.path.join(g.settings.appRoot, this.staticSettings.bootstrap_css)
+      )
+    );
+    this.app.use(
+      '/css', 
+      m.express.static(
+        m.path.join(g.settings.appRoot, this.staticSettings.myCss)
+      )
+    );
 
     // compress all files using gzip
     this.app.use(m.compression({threshold: 0}));
@@ -35,11 +66,16 @@ module.exports = class Server {
 
     new g.classes.REST(this.app);
 
+    // view engine setup
+    this.app.set('views', this.settings.webroot);
+    this.app.set('view engine', 'jsx');
+    this.app.engine('jsx', m.expressreactviews.createEngine());
+
     // create an endpoint ("*")
     var me = this;
     this.app.get(this.settings.endpoint, function(req, res) {
       // send my index.html file
-      res.sendFile(me.settings.indexFile, {root: me.settings.webroot});
+      res.render(me.settings.indexFile, {name: me.settings.name});
     });
 
     // listen on port 2000

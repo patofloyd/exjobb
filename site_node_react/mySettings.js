@@ -14,9 +14,10 @@ module.exports = function() {
     },
     Server: {
       endpoint: '*',
-      webroot: 'src',
-      indexFile: 'index.html',
-      port: 2000
+      webroot: 'views',
+      indexFile: 'index',
+      port: 2000,
+      name: "Underground Defenders"
     },
     DrupalData: {
       albums: "http://localhost:80/exjobb/headless_drupal/allalbums",
@@ -26,6 +27,13 @@ module.exports = function() {
     },
     REST: {
       GetJson: "/drupal/:model/:modelID?"
+    },
+    StaticComponents: {
+      jquery: '/node_modules/jquery/dist',
+      bootstrap_js: '/node_modules/bootstrap/dist/js',
+      bootstrap_css: '/node_modules/bootstrap/dist/css',
+      myJs: '/public/js',
+      myCss: '/public/css'
     }
   };
 };

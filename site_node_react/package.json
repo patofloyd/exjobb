@@ -10,9 +10,14 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "*",
+    "bootstrap": "^3.3.7",
     "compression": "*",
     "cookie-parser": "*",
     "express": "*",
+    "express-react-views": "^0.10.2",
+    "jquery": "^3.2.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "request": "*"
   }
 }

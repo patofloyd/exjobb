@@ -11,6 +11,7 @@ g = {}; // all global variables (ex. settings)
   "request",
   "cookie-parser",
   "compression",
+  "express-react-views",
   "./mySettings",
   "./classLoader"
 ].forEach(function(x){
