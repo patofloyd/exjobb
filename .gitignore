@@ -35,5 +35,5 @@ ehthumbs.db
 Thumbs.db
 
 # Node build artifacts
-/site_node_react/node_modules
-/site_node_react/npm-debug.log
+/site_node_angular/node_modules
+/site_node_angular/npm-debug.log
