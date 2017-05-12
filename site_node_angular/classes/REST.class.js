@@ -49,6 +49,11 @@ module.exports = class REST {
                   obj = {};
                 });
               }
+              else if (model == 'musicstyles') {
+                for (var i = 0; i < body.length; i++) {
+                  arr.push({title: body[i].title, name: body[i].title.split(" ")[0]});
+                }
+              }
               else{
                 arr = body;
               }
@@ -83,6 +88,12 @@ module.exports = class REST {
                   arr.push(obj);
                   obj = {};
                 }
+                else if (model == 'albums' && body[i].field_album_artist.toLowerCase().indexOf(modelID.toLowerCase()) >= 0) {
+                  isThere.push(i);
+                  me.createAlbumObj(body[i], obj);
+                  arr.push(obj);
+                  obj = {};
+                }
                 if (i == body.length - 1 && isThere.length == 0) {
                   res.json({text: "The Object was not found"});
                 }
@@ -105,9 +116,10 @@ module.exports = class REST {
     newObj.album_price = oldObj.field_album_price;
     newObj.album_stock = oldObj.field_album_stock;
     newObj.album_style = oldObj.field_album_music_style;
+    newObj.album_style_name = oldObj.field_album_music_style.indexOf(" ") ? oldObj.field_album_music_style.split(" ")[0] : oldObj.field_album_music_style;
     newObj.album_type = oldObj.field_album_type;
     newObj.album_nid = oldObj.nid;
-    newObj.album_image = oldObj.field_image;
+    newObj.album_image = this.getImage(oldObj.field_image);
     newObj.album_date_updated = oldObj.changed;
 
     var splitField = newObj['field_album_artist'].split("/");
@@ -119,7 +131,12 @@ module.exports = class REST {
     var album_artist = deleteSymbolOne.slice(0,-1);
 
     newObj.album_artist = album_artist;
+    
+  }
 
+  getImage(uri){
+    var splitUrl = uri.split('"');
+    return splitUrl[1];
   }
 
   error(err, res) {

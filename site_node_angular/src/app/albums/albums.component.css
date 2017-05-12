@@ -1,0 +1,11 @@
+.albumsList { 
+	text-align: center;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	margin-bottom: 30px;
+}
+
+.oneAlbum {
+	margin-bottom: 30px;
+}

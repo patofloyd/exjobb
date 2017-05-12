@@ -1,0 +1,18 @@
+<aside>
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">Artists</li>
+            <div *ngFor="let artist of artists">
+            	<li><a href="/albums/{{artist.title}}">{{artist.title}}</a></li>
+        	</div>
+        	<li class="sidebar-brand">Album Format</li>
+        	<div *ngFor="let format of formats">
+            	<li><a href="/albums/{{format.title}}">{{format.title}}</a></li>
+        	</div>
+        	<li class="sidebar-brand">Music Style</li>
+        	<div *ngFor="let style of styles">
+            	<li><a href="/albums/{{style.name}}">{{style.title}}</a></li>
+        	</div>
+        </ul>
+    </div>
+</aside>

@@ -6,10 +6,12 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AlbumsComponent } from './albums/albums.component';
+import { AlbumsDetailsComponent } from './albums/albums-details.component';
 import { AlbumsService } from './albums.service';
 import { ArtistsComponent } from './artists/artists.component';
 import { ArtistsService } from './artists.service';
-
+import { FiltersService } from './filters.service';
+import { FiltersComponent } from './filters/filters.component';
 
 // Define the routes
 const ROUTES = [
@@ -23,6 +25,10 @@ const ROUTES = [
     component: AlbumsComponent
   },
   {
+    path: 'albums/:id', 
+    component: AlbumsDetailsComponent
+  },
+  {
     path: 'artists',
     component: ArtistsComponent
   }
@@ -32,6 +38,8 @@ const ROUTES = [
   declarations: [
     AppComponent,
     AlbumsComponent,
+    AlbumsDetailsComponent,
+    FiltersComponent,
     ArtistsComponent
   ],
   imports: [
@@ -40,7 +48,7 @@ const ROUTES = [
     HttpModule,
     RouterModule.forRoot(ROUTES) // Add routes to the app
   ],
-  providers: [AlbumsService, ArtistsService], // Add the posts service
+  providers: [AlbumsService, ArtistsService, FiltersService], // Add the posts service
   bootstrap: [AppComponent]
 })
 export class AppModule { }

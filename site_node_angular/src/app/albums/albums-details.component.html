@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row albumsList">
-  	<div *ngFor="let album of albums">
+  	<div *ngFor="let album of albumsFiltered">
 	    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 oneAlbum">
 	      <a href="/albums/{{album.album_nid}}"><h4 class="card-title">{{album.album_artist}}</h4>
 	      <p class="card-text">{{album.album_title}} - {{album.album_type}}</p>

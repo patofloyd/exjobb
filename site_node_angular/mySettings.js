@@ -16,8 +16,7 @@ module.exports = function() {
       endpoint: '*',
       webroot: 'dist',
       indexFile: 'index.html',
-      port: 2000,
-      name: "Underground Defenders"
+      port: 2000
     },
     DrupalData: {
       albums: "http://localhost:80/exjobb/headless_drupal/allalbums",
@@ -31,9 +30,7 @@ module.exports = function() {
     StaticComponents: {
       jquery: '/node_modules/jquery/dist',
       bootstrap_js: '/node_modules/bootstrap/dist/js',
-      bootstrap_css: '/node_modules/bootstrap/dist/css',
-      myJs: '/public/js',
-      myCss: '/public/css'
+      bootstrap_css: '/node_modules/bootstrap/dist/css'
     }
   };
 };

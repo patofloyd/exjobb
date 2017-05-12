@@ -35,24 +35,12 @@ module.exports = class Server {
         m.path.join(g.settings.appRoot, this.staticSettings.bootstrap_js)
       )
     );
-    /*this.app.use(
-      '/js', 
-      m.express.static(
-        m.path.join(g.settings.appRoot, this.staticSettings.myJs)
-      )
-    );*/
     this.app.use(
       '/css', 
       m.express.static(
         m.path.join(g.settings.appRoot, this.staticSettings.bootstrap_css)
       )
     );
-    /*this.app.use(
-      '/css', 
-      m.express.static(
-        m.path.join(g.settings.appRoot, this.staticSettings.myCss)
-      )
-    );*/
 
     // compress all files using gzip
     this.app.use(m.compression({threshold: 0}));
@@ -65,11 +53,6 @@ module.exports = class Server {
     this.app.use(m.bodyparser.urlencoded({extended: false}));
 
     new g.classes.REST(this.app);
-
-    // view engine setup
-    /*this.app.set('views', this.settings.webroot);
-    this.app.set('view engine', 'jsx');
-    this.app.engine('jsx', m.expressreactviews.createEngine());*/
 
     // create an endpoint ("*")
     var me = this;
