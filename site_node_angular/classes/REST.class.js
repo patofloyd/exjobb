@@ -66,14 +66,16 @@ module.exports = class REST {
               for (var i = 0; i < body.length; i++) {
                 if (body[i].nid == modelID) {
                   isThere.push(i);
+                  var arr2 = [];
                   if (model == 'albums') {
                     me.createAlbumObj(body[i], obj);
+                    arr2.push(obj);
                   }
                   else{
-                    obj = body[i];
+                    arr2.push(body[i]);
                   }
                   console.log("The Object is sent");
-                  res.json(obj);
+                  res.json(arr2);
                   break;
                 }
                 else if (model == 'albums' && body[i].field_album_music_style.toLowerCase().indexOf(modelID.toLowerCase()) >= 0) {

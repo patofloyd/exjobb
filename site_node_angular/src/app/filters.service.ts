@@ -12,7 +12,7 @@ export class FiltersService {
     return this.http.get('/drupal/artists')
       .map(res => res.json());
   }
-  getMusicStyles() {
+  getMusicGenres() {
     return this.http.get('/drupal/musicstyles')
       .map(res => res.json());
   }

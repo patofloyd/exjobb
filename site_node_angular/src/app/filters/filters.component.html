@@ -9,9 +9,9 @@
         	<div *ngFor="let format of formats">
             	<li><a href="/albums/{{format.title}}">{{format.title}}</a></li>
         	</div>
-        	<li class="sidebar-brand">Music Style</li>
-        	<div *ngFor="let style of styles">
-            	<li><a href="/albums/{{style.name}}">{{style.title}}</a></li>
+        	<li class="sidebar-brand">Genres</li>
+        	<div *ngFor="let genre of genres">
+            	<li><a href="/albums/{{genre.name}}">{{genre.title}}</a></li>
         	</div>
         </ul>
     </div>

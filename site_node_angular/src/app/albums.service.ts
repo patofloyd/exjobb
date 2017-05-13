@@ -16,7 +16,6 @@ export class AlbumsService {
       .map(res => res.json());
   }
   specialAlbums(id: string) {
-
     // Return response
     return this.http.get(this.albumsUrl + '/' + id)
       .map(res => res.json());

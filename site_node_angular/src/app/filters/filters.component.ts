@@ -11,7 +11,7 @@ export class FiltersComponent implements OnInit {
   // instantiate artists to an empty array
   artists: any = [];
   formats: any = [];
-  styles: any = [];
+  genres: any = [];
 
   constructor(private filtersService: FiltersService) { }
 
@@ -23,8 +23,8 @@ export class FiltersComponent implements OnInit {
     this.filtersService.getMusicFormat().subscribe(formats => {
       this.formats = formats;
     });
-    this.filtersService.getMusicStyles().subscribe(styles => {
-      this.styles = styles;
+    this.filtersService.getMusicGenres().subscribe(genres => {
+      this.genres = genres;
     });
   }
 

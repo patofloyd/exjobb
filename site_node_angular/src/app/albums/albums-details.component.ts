@@ -20,7 +20,6 @@ export class AlbumsDetailsComponent implements OnInit {
       this.sub = this.route.params.subscribe(params => {
 
         let id = params['id'];
-
        // Retrieve Pet with Id route param
         this.albumsService.specialAlbums(id).subscribe(albumsFiltered => this.albumsFiltered = albumsFiltered);
     });
