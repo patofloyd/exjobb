@@ -1,3 +1,27 @@
+.wrapper {
+	background-color: #e0e0e0;
+}
+
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row {height: 450px;}
+
 .myContainer{
 	margin-top: 50px;
+}
+
+footer {
+	background-color: #101010;
+	color: white;
+	padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 769px) {
+  .row {height:auto;} 
 }

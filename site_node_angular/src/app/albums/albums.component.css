@@ -1,9 +1,9 @@
 .albumsList { 
 	text-align: center;
-	padding-left: 5px;
-	padding-right: 5px;
-	padding-bottom: 5px;
-	margin-bottom: 30px;
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-bottom: 3px;
+	margin-bottom: 20px;
 }
 
 .allAlbums {
@@ -15,4 +15,18 @@
 	padding-right: 5px;
 	padding-bottom: 5px;
 	margin-bottom: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .oneAlbum {
+    text-align: center;
+  }
+  img {
+  	width: 300px;
+  	height: 300px;
+  }
+}
+
+a{
+	color: #101010;
 }

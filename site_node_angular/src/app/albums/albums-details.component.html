@@ -1,25 +1,27 @@
-<div class="container">
-	<div class="row albumsList" *ngIf="albumsFiltered?.length > 1">
+<div class="col-sm-10">
+	<div class="albumsList" *ngIf="albumsFiltered?.length > 1">
   	<div *ngFor="let album of albumsFiltered">
 	    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 allAlbums">
 	      <a [routerLink]="['/albums', album.album_nid]"><h4 class="card-title">{{album.album_artist}}</h4>
 	      <p class="card-text">{{album.album_title}} - {{album.album_type}}</p>
+	      <p class="card-text">{{album.album_price}}</p>
 	      <img src="{{album.album_image}}" width="200" height="200"></a><br><br>
 	      <button type="button" class="btn btn-primary">Add to cart</button>
 	    </div>
     </div>
   </div>
-  <div class="row oneAlbum" *ngIf="albumsFiltered?.length == 1">
+  <div class="oneAlbum" *ngIf="albumsFiltered?.length == 1">
 	  <div *ngFor="let album of albumsFiltered">
 	  	<h4 class="card-title">{{album.album_artist}}</h4>
 	    <p class="card-text">{{album.album_title}} - {{album.album_type}}</p>
 	    <img src="{{album.album_image}}" width="400" height="400"><br>
 	    <h5 class="card-title">Description</h5>
 	    <p class="card-text">{{album.album_description}}</p>
-	    <button type="button" class="btn btn-primary">Add to cart</button>
+	    <p class="card-text">Price: {{album.album_price}}</p>
+	    <button type="button" class="btn btn-primary">Add to cart</button><p class="card-text">Stock: {{album.album_stock}}</p>
     </div>
   </div>
-  <div class="row oneAlbum" *ngIf="albumsFiltered?.length == undefined">
+  <div class="oneAlbum" *ngIf="albumsFiltered?.length == undefined">
   	<h2>No albums!</h2>
   </div>
 </div>

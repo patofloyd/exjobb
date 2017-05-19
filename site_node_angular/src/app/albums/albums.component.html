@@ -1,10 +1,11 @@
-<div class="container">
-  <div class="row albumsList">
+<div class="col-sm-10">
+  <div class="albumsList">
   	<div *ngFor="let album of albums">
-	    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 allAlbums">
+	    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 allAlbums">
 	      <a [routerLink]="['/albums', album.album_nid]"><h4 class="card-title">{{album.album_artist}}</h4>
 	      <p class="card-text">{{album.album_title}} - {{album.album_type}}</p>
-	      <img src="{{album.album_image}}" width="200" height="200"></a><br><br>
+	      <p class="card-text">{{album.album_price}}</p>
+	      <img src="{{album.album_image}}" width="150" height="150"></a><br><br>
 	      <button type="button" class="btn btn-primary">Add to cart</button>
 	    </div>
     </div>

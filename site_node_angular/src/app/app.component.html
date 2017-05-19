@@ -1,17 +1,37 @@
 <div class="wrapper">
-	<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-	    <div class="container">
-	        <a class="navbar-brand">{{title}}</a>
-	        <ul class="nav navbar-nav" routerLinkActive="active">
-	            <li class="nav-item"><a class="nav-link" routerLink="">Home</a></li>
-	            <li class="nav-item"><a class="nav-link" routerLink="albums">Albums</a></li>
-	            <li class="nav-item"><a class="nav-link" routerLink="contact">Contact</a></li>
-	            <li class="nav-item"><a class="nav-link" routerLink="about">About</a></li>
-	        </ul>
+
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>                        
+	      </button>
+	      <a class="navbar-brand" href="#">{{title}}</a>
 	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a routerLink="">Home</a></li>
+            <li><a routerLink="albums">Albums</a></li>
+            <li><a routerLink="contact">Contact</a></li>
+            <li><a routerLink="about">About</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+	      </ul>
+	    </div>
+	  </div>
 	</nav>
-	<div class="myContainer">
-		<router-outlet></router-outlet>
+
+	<div class="container-fluid">
+		<div class="row">
+			<app-filters></app-filters>	
+			<router-outlet></router-outlet>
+		</div>
 	</div>
-	<app-filters></app-filters>
+	
+	<footer class="container-fluid text-center">
+	  <p>{{title}} - Underground Metal Label from Chile since 2008</p>
+	</footer>
 </div>

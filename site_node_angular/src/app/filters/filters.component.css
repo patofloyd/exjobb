@@ -1,11 +1,9 @@
+
 .sidebar-nav {
-    position: absolute;
-    top: 0;
-    width: 200px;
-    margin: 0;
-    margin-top: 50px;
     padding: 0;
+    height: 100%;
     list-style: none;
+    background-color: #e0e0e0;
 }
 
 .sidebar-nav li {
@@ -34,6 +32,7 @@
     height: 65px;
     font-size: 18px;
     line-height: 60px;
+    color: #101010;
 }
 
 .sidebar-nav > .sidebar-brand a {
@@ -44,3 +43,20 @@
     color: #fff;
     background: none;
 }
+
+.navbar-collapse {
+    background-color: #e0e0e0;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 769px) {
+    .sidebar-nav {
+        height: auto;
+    }
+    .navbar-collapse {
+        padding-left: 0px;
+    }
+}
+
+
+
