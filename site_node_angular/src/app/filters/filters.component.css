@@ -9,6 +9,7 @@
 .sidebar-nav li {
     text-indent: 20px;
     line-height: 40px;
+    font-size: 14px;
 }
 
 .sidebar-nav li a {
@@ -29,10 +30,11 @@
 }
 
 .sidebar-nav > .sidebar-brand {
-    height: 65px;
-    font-size: 18px;
+    height: 50px;
+    font-size: 15px;
     line-height: 60px;
     color: #101010;
+    text-decoration: underline;
 }
 
 .sidebar-nav > .sidebar-brand a {
@@ -48,13 +50,16 @@
     background-color: #e0e0e0;
 }
 
+@media screen and (max-width: 991px) {
+    .navbar-collapse {
+        padding-left: 0px;
+    }
+}
+
 /* On small screens, set height to 'auto' for sidenav and grid */
 @media screen and (max-width: 769px) {
     .sidebar-nav {
         height: auto;
-    }
-    .navbar-collapse {
-        padding-left: 0px;
     }
 }
 

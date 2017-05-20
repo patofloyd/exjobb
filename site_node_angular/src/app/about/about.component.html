@@ -1,0 +1,12 @@
+<div class="col-sm-10">
+  <div *ngIf="about?.length == 1">
+	  <div *ngFor="let about of about">
+	  	<h3 class="card-title">{{about.title}}</h3>
+	    <img src="{{about.image}}" width="400" height="200"><br><br>
+	    <p class="card-text">{{about.field_label_description}}</p>
+	    <p class="card-text"><b>Address:</b> {{about.field_label_address}}</p>
+	    <p class="card-text"><b>Phone:</b> {{about.field_label_telefon}}</p>
+	    <p class="card-text"><b>Email:</b> {{about.field_label_email}}</p>
+    </div>
+  </div>
+</div>

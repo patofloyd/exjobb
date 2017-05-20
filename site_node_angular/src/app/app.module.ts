@@ -12,6 +12,8 @@ import { ArtistsComponent } from './artists/artists.component';
 import { ArtistsService } from './artists.service';
 import { FiltersService } from './filters.service';
 import { FiltersComponent } from './filters/filters.component';
+import { AboutComponent } from './about/about.component';
+import { AboutService } from './about.service';
 
 // Define the routes
 const ROUTES = [
@@ -31,6 +33,10 @@ const ROUTES = [
   {
     path: 'artists',
     component: ArtistsComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
   }
 ];
 
@@ -40,7 +46,8 @@ const ROUTES = [
     AlbumsComponent,
     AlbumsDetailsComponent,
     FiltersComponent,
-    ArtistsComponent
+    ArtistsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +55,7 @@ const ROUTES = [
     HttpModule,
     RouterModule.forRoot(ROUTES) // Add routes to the app
   ],
-  providers: [AlbumsService, ArtistsService, FiltersService], // Add the posts service
+  providers: [AlbumsService, ArtistsService, FiltersService, AboutService], // Add the posts service
   bootstrap: [AppComponent]
 })
 export class AppModule { }

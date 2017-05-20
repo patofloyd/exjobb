@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Underground Defenders';
+  footerText = 'Underground Metal Label from Chile since 2008';
 }

@@ -57,7 +57,12 @@ module.exports = class REST {
                 }
               }
               else{
-                arr = body;
+                for (var i = 0; i < body.length; i++) {
+                  if (body[i].field_image) {
+                    body[i].image = me.getImage(body[i].field_image);
+                  }
+                  arr.push(body[i]);
+                }
               }
               res.json(arr);
             }

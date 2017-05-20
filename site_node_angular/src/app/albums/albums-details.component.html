@@ -18,7 +18,8 @@
 	    <h5 class="card-title">Description</h5>
 	    <p class="card-text">{{album.album_description}}</p>
 	    <p class="card-text">Price: {{album.album_price}}</p>
-	    <button type="button" class="btn btn-primary">Add to cart</button><p class="card-text">Stock: {{album.album_stock}}</p>
+	    <p class="card-text">Stock: {{album.album_stock}}</p>
+	    <button type="button" class="btn btn-primary">Add to cart</button>
     </div>
   </div>
   <div class="oneAlbum" *ngIf="albumsFiltered?.length == undefined">

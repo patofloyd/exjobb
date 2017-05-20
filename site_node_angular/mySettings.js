@@ -22,7 +22,8 @@ module.exports = function() {
       albums: "http://localhost:80/exjobb/headless_drupal/allalbums",
       artists: "http://localhost:80/exjobb/headless_drupal/allartists",
       musicstyles: "http://localhost:80/exjobb/headless_drupal/allmusicstyles",
-      musicformat: "http://localhost:80/exjobb/headless_drupal/allmusicformat"
+      musicformat: "http://localhost:80/exjobb/headless_drupal/allmusicformat",
+      about: "http://localhost:80/exjobb/headless_drupal/aboutlabel"
     },
     REST: {
       GetJson: "/drupal/:model/:modelID?"

@@ -1,0 +1,15 @@
+.artistsList { 
+	text-align: center;
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-bottom: 3px;
+	margin-bottom: 20px;
+}
+
+.allArtists {
+	margin-bottom: 30px;
+}
+
+a{
+	color: #101010;
+}
