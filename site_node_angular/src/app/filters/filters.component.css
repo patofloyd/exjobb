@@ -50,6 +50,12 @@
     background-color: #e0e0e0;
 }
 
+.sidebar-title {
+    color: #9d9d9d;
+    font-size: 18px;
+    display: none;
+}
+
 @media screen and (max-width: 991px) {
     .navbar-collapse {
         padding-left: 0px;
@@ -60,6 +66,9 @@
 @media screen and (max-width: 769px) {
     .sidebar-nav {
         height: auto;
+    }
+    .sidebar-title {
+        display: inherit;
     }
 }
 

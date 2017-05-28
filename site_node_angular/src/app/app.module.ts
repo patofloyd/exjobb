@@ -15,6 +15,8 @@ import { FiltersComponent } from './filters/filters.component';
 import { AboutComponent } from './about/about.component';
 import { AboutService } from './about.service';
 
+import { PagerService } from './_services/index';
+
 // Define the routes
 const ROUTES = [
   {
@@ -55,7 +57,7 @@ const ROUTES = [
     HttpModule,
     RouterModule.forRoot(ROUTES) // Add routes to the app
   ],
-  providers: [AlbumsService, ArtistsService, FiltersService, AboutService], // Add the posts service
+  providers: [AlbumsService, ArtistsService, FiltersService, AboutService, PagerService], // Add the posts service
   bootstrap: [AppComponent]
 })
 export class AppModule { }

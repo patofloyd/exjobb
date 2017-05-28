@@ -45,8 +45,9 @@ module.exports = class REST {
                 body.forEach(function(x){
                   me.createAlbumObj(x, obj);
                   arr.push(obj);
-                  arr.push(obj); // DUMMYDATA
-                  arr.push(obj); // DUMMYDATA
+                  for (var i = 0; i < 10; i++) {
+                    arr.push(obj); // Getting DUMMYDATA
+                  }
                   obj = {};
                 });
               }

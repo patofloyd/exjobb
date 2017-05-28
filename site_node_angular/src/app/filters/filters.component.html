@@ -1,26 +1,26 @@
 <aside class="col-sm-2 navbar-inverse">
-  <div class="navbar-header">
-    <p class="navbar-brand hidden">Filters</p>  
+  <div class="navbar-header"> 
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mySidebar">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>                        
     </button>
+    <h3 class="sidebar-title">Filters</h3>
   </div>
   <div class="row collapse navbar-collapse" id="mySidebar">
     <ul class="sidebar-nav">
+      <li class="sidebar-brand">Formats</li>
+      <div *ngFor="let format of formats">
+          <li><a routerLink="/albums/{{format.title}}">{{format.title}}</a></li>
+      </div>
+      <li class="sidebar-brand">Genres</li>
+      <div *ngFor="let genre of genres">
+          <li><a routerLink="/albums/{{genre.title}}">{{genre.title}}</a></li>
+      </div>
       <li class="sidebar-brand">Artists</li>
-        <div *ngFor="let artist of artists">
-            <li><a routerLink="/albums/{{artist.title}}">{{artist.title}}</a></li>
-        </div>
-        <li class="sidebar-brand">Formats</li>
-        <div *ngFor="let format of formats">
-            <li><a routerLink="/albums/{{format.title}}">{{format.title}}</a></li>
-        </div>
-        <li class="sidebar-brand">Genres</li>
-        <div *ngFor="let genre of genres">
-            <li><a routerLink="/albums/{{genre.title}}">{{genre.title}}</a></li>
-        </div>
+      <div *ngFor="let artist of artists">
+          <li><a routerLink="/albums/{{artist.title}}">{{artist.title}}</a></li>
+      </div>      
     </ul>
   </div>
 </aside>

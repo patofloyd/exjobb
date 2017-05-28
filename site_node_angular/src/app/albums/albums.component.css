@@ -29,4 +29,9 @@
 
 a{
 	color: #101010;
+	cursor: pointer;
+}
+
+.centeredPag {
+	text-align: center;
 }
