@@ -1,9 +1,13 @@
+# Node JS site
+
+The server side was created with Node JS (Express) so you don't need to run `ng serve`, instead you can run `npm run build` and navigate to `http://localhost:2000/`.
+
 # AngularApp
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
 
 ## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. // not necessary
 
 ## Code scaffolding
 
@@ -11,7 +15,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build. // not necessary
 
 ## Running unit tests
 
