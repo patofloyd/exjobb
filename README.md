@@ -6,6 +6,7 @@ This project has been created and tested using MAMP (Free version) to work with 
 
 ## Installation as localhost:
 
+- Install Node JS on your computer.
 - Donwload the repository.
 - Set your local apache server using the port 80 and make sure that you get the drupal site in this exact url "localhost:80/exjobb/headless_drupal/" so you will not have problem with the links of the images.
 - Set you local database using the port 3306.
