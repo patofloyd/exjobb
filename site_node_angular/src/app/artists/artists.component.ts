@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ArtistsService } from '../artists.service';
 
+// Page under construction
+
 @Component({
   selector: 'app-artists',
   templateUrl: './artists.component.html',

@@ -41,12 +41,12 @@ module.exports = class REST {
             if (!modelID) {
               var obj = {};
               var arr = [];
-              if (model == 'albums') {  // Creating the new object using the album help function if the model is "albums".
+              if (model == 'albums') {  // Create the new object using the album help function if the model is "albums".
                 body.forEach(function(x){
                   me.createAlbumObj(x, obj);
                   arr.push(obj);
-                  for (var i = 0; i < 10; i++) {
-                    arr.push(obj); // Getting DUMMYDATA
+                  for (var i = 0; i < 5; i++) {
+                    arr.push(obj); // Get more albums to test the pagination function.
                   }
                   obj = {};
                 });
@@ -54,7 +54,7 @@ module.exports = class REST {
               else{
                 for (var i = 0; i < body.length; i++) {
                   if (body[i].field_image) {
-                    body[i].image = me.getImage(body[i].field_image); // Calling the function that creates the image link if there are images.
+                    body[i].image = me.getImage(body[i].field_image); // Call the function that creates the image link if there are images.
                   }
                   arr.push(body[i]);
                 }
@@ -65,7 +65,7 @@ module.exports = class REST {
               var obj = {};
               var arr = [];
               for (var i = 0; i < body.length; i++) {
-                if (body[i].nid == modelID) { // Getting one object depending on the id
+                if (body[i].nid == modelID) { // Get one object depending on the id
                   var arr2 = [];
                   if (model == 'albums') {
                     me.createAlbumObj(body[i], obj);
@@ -78,18 +78,23 @@ module.exports = class REST {
                   res.json(arr2);
                   break;
                 }
-                else if (model == 'albums' && me.getArtistNameAndNid(body[i].field_album_artist).name.toLowerCase().indexOf(modelID.toLowerCase()) >= 0) {
-                  me.createAlbumObj(body[i], obj); // Getting the data with some filters.
+                /*else if (model == 'albums' && me.getArtistNameAndNid(body[i].field_album_artist).name.toLowerCase().indexOf(modelID.toLowerCase()) >= 0) {
+                  me.createAlbumObj(body[i], obj); // Get data with some filters.
+                  arr.push(obj);
+                  obj = {};
+                }*/
+                else if (model == 'albums' && me.getArtistNameAndNid(body[i].field_album_artist).name.toLowerCase() == modelID.toLowerCase()) {
+                  me.createAlbumObj(body[i], obj); // Get data with some filters.
                   arr.push(obj);
                   obj = {};
                 }
                 else if (model == 'albums' && body[i].field_album_music_style.toLowerCase().indexOf(modelID.toLowerCase()) >= 0) {
-                  me.createAlbumObj(body[i], obj); // Getting the data with some filters.
+                  me.createAlbumObj(body[i], obj); // Get data with some filters.
                   arr.push(obj);
                   obj = {};
                 }
                 else if (model == 'albums' && body[i].field_album_type.toLowerCase().indexOf(modelID.toLowerCase()) >= 0) {
-                  me.createAlbumObj(body[i], obj); // Getting the data with some filters.
+                  me.createAlbumObj(body[i], obj); // Get data with some filters.
                   arr.push(obj);
                   obj = {};
                 }               

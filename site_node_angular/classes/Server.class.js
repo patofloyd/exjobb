@@ -52,7 +52,7 @@ module.exports = class Server {
     // for example from "standard" HTML forms
     this.app.use(m.bodyparser.urlencoded({extended: false}));
 
-    // Calling our REST class
+    // Call our REST class
     new g.classes.REST(this.app);
 
     // create an endpoint ("*")

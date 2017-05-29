@@ -34,7 +34,7 @@ const ROUTES = [
   },
   {
     path: 'artists',
-    component: ArtistsComponent
+    component: ArtistsComponent // Page under construction
   },
   {
     path: 'about',
